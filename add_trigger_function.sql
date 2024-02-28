@@ -11,7 +11,7 @@ begin
     LOOP
         -- if create table and table name begins with "user_", automatically create user_id column
         IF obj.command_tag = 'CREATE TABLE' THEN
-            EXECUTE FORMAT('SELECT audit.audit_table(%s)', obj.object_identity);
+            EXECUTE FORMAT('SELECT audit.audit_table(%L)', obj.object_identity);
         END IF;
     END LOOP;
 END
